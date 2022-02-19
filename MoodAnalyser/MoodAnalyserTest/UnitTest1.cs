@@ -3,31 +3,44 @@ using System;
 using MoodAnalyserDemo;
 
 namespace MoodAnalyserTest
-{   
-     
-        public class UnitTest1
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        [TestMethod]
+        [TestCategory("Happy Mood")]
+        public void GivenMessageShouldReturnHappy()
         {
-            [TestMethod]
-            [TestCategory("Happy Mood")]
-            public void GivenMessageShouldReturnHappy()
-            {
-                ///Follow AAA strategy
-                ///Arrange , Act and in last Assert
-                MoodAnalyse mood = new MoodAnalyse("I am in Happy Mood");
-                string excepted = "happy";
-                var actual = mood.Mood();
-                Assert.AreEqual(excepted, actual);
-            }
-            [TestMethod]
-            [TestCategory("SAD Mood")]
-            public void GivenMessageShouldReturnSad()
-            {
-                ///Follow AAA strategy
-                ///Arrange , Act and in last Assert
-                MoodAnalyse mood = new MoodAnalyse("I am in SAD Mood");
-                string excepted = "sad";
-                var actual = mood.Mood();
-                Assert.AreEqual(excepted, actual);
-            }
+            ///Follow AAA strategy
+            ///Arrange , Act and in last Assert
+            AnalyzeMood mood = new AnalyzeMood("I am in Happy Mood");
+            string excepted = "happy";
+            var actual = mood.Mood();
+            Assert.AreEqual(excepted, actual);
         }
+        [TestMethod]
+        [TestCategory("SAD Mood")]
+        public void GivenMessageShouldReturnSad()
+        {
+            ///Follow AAA strategy
+            ///Arrange , Act and in last Assert
+            AnalyzeMood mood = new AnalyzeMood("I am in SAD Mood");
+            string excepted = "sad";
+            var actual = mood.Mood();
+            Assert.AreEqual(excepted, actual);
+        }
+        [TestMethod]
+        [TestCategory("Null")]
+        public void GivenNullShouldReturnHappy()
+        {
+            ///Follow AAA strategy
+            ///Arrange , Act and in last Assert
+            string message = null;
+            AnalyzeMood mood = new AnalyzeMood(message);
+            string excepted = "happy";
+            var actual = mood.Mood();
+            Assert.AreEqual(excepted, actual);
+        }
+    }
+
 }
