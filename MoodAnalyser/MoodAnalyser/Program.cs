@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoodAnalyser
+namespace MoodAnalyserDemo
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to mood analyzer");
+            Console.ReadLine();
         }
+    }
     }
 }
