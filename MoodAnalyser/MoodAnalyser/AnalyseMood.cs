@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoodAnalyser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,10 @@ namespace MoodAnalyserDemo
                 {
                     return "happy";
                 }
+                else if (message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.EMPTY_EXCEPTION, "Message cann't be Empty");
+                }
                 else
                 {
                     return "sad";
@@ -31,8 +36,9 @@ namespace MoodAnalyserDemo
             }
             catch (NullReferenceException ex)
             {
-                Console.WriteLine(ex.Message);
-                return "happy";
+                Console.WriteLine("Default Exception: " + ex.Message);
+                throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NULL_EXCEPTION, "Message cann't be null");
+
             }
         }
     }
