@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 namespace MoodAnalyserDemo
 {
     public class MoodAnalyse
+    {
+        public string message;
+        //parameterized constructor
+        public MoodAnalyse(string message)
         {
-        public string Mood(string message)
+            this.message = message;
+        }
+        //Method to return the type of Mood
+        public string Mood()
         {
             if (message.ToLower().Contains("happy"))
             {
@@ -19,6 +26,8 @@ namespace MoodAnalyserDemo
                 return "sad";
             }
         }
+
+
 
     }
 }

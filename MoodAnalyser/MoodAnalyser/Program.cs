@@ -14,5 +14,4 @@ namespace MoodAnalyserDemo
             Console.ReadLine();
         }
     }
-    }
 }

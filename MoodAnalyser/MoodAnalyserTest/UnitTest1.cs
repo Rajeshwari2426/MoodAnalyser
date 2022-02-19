@@ -3,20 +3,19 @@ using System;
 using MoodAnalyserDemo;
 
 namespace MoodAnalyserTest
-{
-    [TestClass]
-    public class UnitTest1
-    {     
+{   
+     
+        public class UnitTest1
+        {
             [TestMethod]
             [TestCategory("Happy Mood")]
             public void GivenMessageShouldReturnHappy()
             {
-              ///Follow AAA strategy
-              ///Arrange , Act and in last Assert
-             MoodAnalyse mood = new MoodAnalyse();
-             string message = "I am in Happy Mood";
+                ///Follow AAA strategy
+                ///Arrange , Act and in last Assert
+                MoodAnalyse mood = new MoodAnalyse("I am in Happy Mood");
                 string excepted = "happy";
-                var actual = mood.Mood(message);
+                var actual = mood.Mood();
                 Assert.AreEqual(excepted, actual);
             }
             [TestMethod]
@@ -25,12 +24,10 @@ namespace MoodAnalyserTest
             {
                 ///Follow AAA strategy
                 ///Arrange , Act and in last Assert
-                MoodAnalyse mood = new MoodAnalyse();
-                string message = "I am in SAD Mood";
+                MoodAnalyse mood = new MoodAnalyse("I am in SAD Mood");
                 string excepted = "sad";
-                var actual = mood.Mood(message);
+                var actual = mood.Mood();
                 Assert.AreEqual(excepted, actual);
             }
-        
-    }
+        }
 }
