@@ -10,7 +10,12 @@ namespace MoodAnalyserDemo
     public class AnalyzeMood
     {
         //variable
-        public string message;
+        public string message;       
+        /// default contructor       
+        public AnalyzeMood()
+        {
+
+        }
         //parameterized constructor
         public AnalyzeMood(string message)
         {
@@ -21,24 +26,27 @@ namespace MoodAnalyserDemo
         {
             try
             {
-                if (message.ToLower().Contains("happy"))
+                message = message.ToLower();
+                if (message == null)
                 {
-                    return "happy";
+                    throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NULL_EXCEPTION, "Message cann't be null");
                 }
-                else if (message.Equals(string.Empty))
+                if (message.Equals(string.Empty))
                 {
                     throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.EMPTY_EXCEPTION, "Message cann't be Empty");
+                }
+                if (message.Contains("happy"))
+                {
+                    return "happy";
                 }
                 else
                 {
                     return "sad";
                 }
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Default Exception: " + ex.Message);
-                throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NULL_EXCEPTION, "Message cann't be null");
-
+                return "happy";
             }
         }
     }
